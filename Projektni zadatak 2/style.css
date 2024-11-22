@@ -1,0 +1,45 @@
+/* Stilovi za zaglavlje */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+header {
+    background-image: url("media/image.png");
+    background-repeat: no-repeat; /* Prevents tiling */
+    background-position: center; /* Centers the image */
+    height: 600px; /* Sets a fixed height for the header */
+    width: 100%; /* Sets the width to span the container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+header h1 {
+  color: white;
+  font-size: 3rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+nav {
+  background-color: #333;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+nav ul li {
+  margin: 0 15px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 15px;
+  display: block;
+}
+nav ul li a:hover {
+  background-color: #575757;
+  border-radius: 5px;
+}
