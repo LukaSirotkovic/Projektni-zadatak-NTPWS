@@ -1,0 +1,90 @@
+/* Stilovi za zaglavlje */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header img {
+  height: auto; /* Sets a fixed height for the header */
+  width: 100%; /* Sets the width to span the container */
+}
+
+header h1 {
+  color: white;
+  font-size: 3rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+nav {
+  background-color: #333;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+nav ul li {
+  margin: 0 15px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 15px;
+  display: block;
+}
+nav ul li a:hover {
+  background-color: #575757;
+  border-radius: 5px;
+}
+
+main {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+main h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+main p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  color: #555;
+}
+
+figure {
+  text-align: left;
+  margin: 0px 40px;
+}
+
+figure img {
+  max-width: 50%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+figure figcaption {
+  text-align: left;
+  margin-top: 10px;
+  font-style: italic;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+footer {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
