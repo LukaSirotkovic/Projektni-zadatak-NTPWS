@@ -1,0 +1,280 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+header img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 500px;
+  width: auto;
+}
+
+header h1 {
+  color: white;
+  font-size: 3rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+nav {
+  background-color: #333;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 15px;
+  display: block;
+}
+
+nav ul li a:hover {
+  background-color: #575757;
+  border-radius: 5px;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+  max-width: 1200px;
+}
+main h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #333;
+  margin: 0 auto;
+  padding-left: 20px;
+  border-bottom: solid 2px #333;
+}
+
+/* O nama */
+.about {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about h2 {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.content {
+  overflow: hidden; /* Osigurava da floatani elementi ne prekrivaju sadržaj */
+}
+
+.content video {
+  float: left; /* Postavlja video na lijevu stranu */
+  margin: 0 20px 20px 0; /* Dodaje razmak između videa i teksta */
+  width: 400px; /* Fiksna širina videa */
+  height: auto; /* Zadržava proporcije videa */
+  border: 1px solid #ddd; /* Dodaje okvir oko videa */
+  border-radius: 5px; /* Zaokružuje rubove videa */
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Blaga sjena za estetiku */
+}
+
+.text p {
+  text-align: justify; /* Poravnava tekst za estetski izgled */
+  margin: 0 0 10px 0; /* Razmak između paragrafa */
+  line-height: 1.6; /* Poboljšava čitljivost */
+}
+
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-content p {
+  margin: 10px 0;
+  font-size: 0.9rem;
+}
+
+/* Veliki ekrani (desktopi, veći od 1200px) */
+@media screen and (min-width: 1200px) {
+  header img {
+    height: 600px; /* Povećana visina slike na većim ekranima */
+  }
+  main {
+    max-width: 1400px;
+  }
+  main h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Srednji ekrani (tableti, između 768px i 1200px) */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  header img {
+    height: 400px;
+  }
+  main {
+    padding: 15px;
+  }
+  nav ul li a {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+}
+
+/* Mali ekrani (mobilni uređaji, između 576px i 768px) */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  header img {
+    height: 300px;
+  }
+
+  main h1 {
+    font-size: 1.8rem;
+  }
+  nav ul {
+    flex-direction: column; /* Navigacija vertikalna */
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 5px 0;
+  }
+  nav ul li a {
+    font-size: 0.8rem;
+    padding: 8px 10px;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content video {
+    width: 100%;
+  }
+
+  .content p {
+    text-align: justify;
+    margin-top: 10px;
+  }
+}
+
+/* Vrlo mali ekrani (manje od 576px) */
+@media screen and (max-width: 575px) {
+  header img {
+    height: 200px;
+  }
+
+  main h1 {
+    font-size: 1.5rem;
+  }
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  nav ul li {
+    margin: 5px 0;
+  }
+  nav ul li a {
+    font-size: 0.7rem;
+    padding: 5px 8px;
+  }
+  .footer-content p {
+    font-size: 0.8rem;
+  }
+  .social-links a img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content video {
+    width: 100%;
+  }
+
+  .content p {
+    text-align: justify;
+    margin-top: 10px;
+  }
+}
+/* Vrlo mali ekrani (350px i manje) */
+@media screen and (max-width: 350px) {
+  header img {
+    height: 150px; /* Smanjujemo visinu slike */
+  }
+  header h1 {
+    font-size: 1.2rem; /* Manji font za naslov */
+    text-align: center;
+  }
+
+  main h1 {
+    font-size: 1.3rem; /* Manji naslov */
+  }
+  main p {
+    font-size: 0.9rem; /* Smanjujemo font veličinu teksta */
+    line-height: 1.4;
+  }
+  nav ul {
+    flex-direction: column; /* Navigacija vertikalna */
+    align-items: center;
+  }
+  nav ul li a {
+    font-size: 0.6rem; /* Vrlo mali font za navigaciju */
+    padding: 5px;
+  }
+  .footer-content p {
+    font-size: 0.7rem; /* Manji font u footeru */
+  }
+  .social-links a img {
+    width: 20px; /* Smanjujemo veličinu ikona */
+    height: 20px;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content video {
+    width: 100%;
+  }
+
+  .content p {
+    text-align: justify;
+    margin-top: 10px;
+  }
+}
