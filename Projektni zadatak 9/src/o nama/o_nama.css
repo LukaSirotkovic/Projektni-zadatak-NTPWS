@@ -86,7 +86,7 @@ main h1 {
 }
 
 .content {
-  overflow: hidden; /* Osigurava da floatani elementi ne prekrivaju sadržaj */
+  overflow: hidden; 
 }
 
 .content video {
