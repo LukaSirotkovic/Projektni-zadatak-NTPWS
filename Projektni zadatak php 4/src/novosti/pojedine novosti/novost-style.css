@@ -1,0 +1,261 @@
+/* Opći stilovi */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+header img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 500px;
+  width: auto;
+}
+
+header h1 {
+  color: white;
+  font-size: 3rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #444;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 15px;
+  display: block;
+}
+
+nav ul li a:hover {
+  background-color: #575757;
+  border-radius: 5px;
+}
+
+/* Glavni dio članka */
+main {
+  flex: 1;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.article .date {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* Galerija */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.image {
+  text-align: center;
+}
+
+.image img {
+  max-width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.image p {
+  font-size: 0.9rem;
+  margin-top: 5px;
+  color: #555;
+}
+
+/* Odlomci */
+main p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-content p {
+  margin: 10px 0;
+  font-size: 0.9rem;
+}
+
+
+/* Veliki ekrani (desktopi, >1200px) */
+@media screen and (min-width: 1200px) {
+  header img {
+    height: 600px; /* Veća slika za veće ekrane */
+  }
+  main {
+    max-width: 1400px;
+  }
+  main h1 {
+    font-size: 2.5rem;
+  }
+  .articles {
+    
+    gap: 15px; /* Smanjen razmak između članaka */
+  }
+  article h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Srednji ekrani (tableti, 768px - 1199px) */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  header img {
+    height: 400px;
+  }
+  main {
+    padding: 15px;
+  }
+  .articles {
+    gap: 15px; /* Smanjen razmak između članaka */
+  }
+
+  article h2 {
+    font-size: 1.5rem;
+  }
+  nav ul li a {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+}
+
+/* Mali ekrani (mobilni uređaji, 576px - 767px) */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  header img {
+    height: 300px;
+  }
+  
+  main h1 {
+    font-size: 1.8rem;
+  }
+  
+  article h2 {
+    font-size: 1.3rem;
+  }
+  nav ul {
+    flex-direction: column; /* Navigacija vertikalna */
+    align-items: center;
+  }
+  nav ul li {
+    margin: 5px 0;
+  }
+  nav ul li a {
+    font-size: 0.8rem;
+    padding: 8px 10px;
+  }
+}
+
+/* Vrlo mali ekrani (<576px) */
+@media screen and (max-width: 575px) {
+  header img {
+    height: 200px;
+  }
+  
+  main h1 {
+    font-size: 1.5rem;
+  }
+  article h2 {
+    font-size: 1.2rem;
+  }
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  nav ul li {
+    margin: 5px 0;
+  }
+  nav ul li a {
+    font-size: 0.7rem;
+    padding: 5px 8px;
+  }
+  .footer-content p {
+    font-size: 0.8rem;
+  }
+}
+
+/* Ekrani širine 350px i manje */
+@media screen and (max-width: 350px) {
+  header img {
+    height: 150px; /* Smanjena visina slike */
+  }
+  
+  main h1 {
+    font-size: 1.2rem; /* Manji naslov */
+  }
+  article h2 {
+    font-size: 1rem; /* Smanjen font za naslove članaka */
+  }
+  article p {
+    font-size: 0.9rem; /* Smanjen tekst u člancima */
+    line-height: 1.4;
+  }
+  nav ul {
+    flex-direction: column; /* Navigacija vertikalna */
+    align-items: center;
+  }
+  nav ul li a {
+    font-size: 0.6rem; /* Vrlo mali font za navigaciju */
+    padding: 5px;
+  }
+  .footer-content p {
+    font-size: 0.7rem; /* Manji font u footeru */
+  }
+}
