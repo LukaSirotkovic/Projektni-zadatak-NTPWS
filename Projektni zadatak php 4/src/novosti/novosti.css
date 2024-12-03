@@ -41,7 +41,9 @@ article:hover {
 }
 
 article img {
-  max-width: 100%;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
   border-radius: 5px;
   margin-bottom: 10px;
 }

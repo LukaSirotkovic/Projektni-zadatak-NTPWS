@@ -1,3 +1,14 @@
+<?php
+include 'db_connect.php'; // Uključite datoteku za spajanje na bazu podataka
+
+// SQL upit za dohvaćanje aktivnih vijesti
+$sql = " SELECT v.id, v.naslov, v.tekst, v.datum_objave, s.putanja AS slika 
+FROM vijesti v
+LEFT JOIN slike s ON v.id = s.vijest_id
+WHERE v.arhivirano = FALSE AND v.odobreno = TRUE";
+$result = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="hr">
 
@@ -7,53 +18,37 @@
     <meta name="description" content="HTML5 Stranica s člancima">
     <meta name="keywords" content="HTML5, članci, frontend, primjer">
     <meta name="author" content="Luka Sirotković">
-    <link rel="stylesheet" href="novosti.css">
     <title>Novosti</title>
 </head>
 
 <body>
-    
     <main>
         <h1>Novosti</h1>
         <h2>Članci</h2>
         <section class="articles">
-            <article>
-                <a href="pojedine novosti/novost-1.html"><img src="src/novosti/novosti media/news-2-1.jpg" alt="Thumbnail članka 1"></a>
-                <h2><a href="pojedine novosti/novost-1.html">Naslov članka 1</a></h2>
-                <p class="date">Objavljeno: 20.11.2024.</p>
-                <p>Kratak opis prvog članka. Ovo je pregled onoga što možete očekivati u članku.</p>
-                <a href="pojedine novosti/novost-1.html" class="read-more">Pročitaj više...</a>
-            </article>
-            <article>
-                <a href="pojedine novosti/novost-2.html"><img src="src/novosti/novosti media/news-1-1.jpg" alt="Thumbnail članka 2"></a>
-                <h2><a href="pojedine novosti/novost-2.html">Naslov članka 2</a></h2>
-                <p class="date">Objavljeno: 19.11.2024.</p>
-                <p>Kratak opis drugog članka. Kliknite za više informacija o ovoj temi.</p>
-                <a href="pojedine novosti/novost-2.html" class="read-more">Pročitaj više...</a>
-            </article>
-            <article>
-                <a href="pojedine novosti/novost-3.html"><img src="src/novosti/novosti media/news-1-2.jpg" alt="Thumbnail članka 3"></a>
-                <h2><a href="pojedine novosti/novost-3.html">Naslov članka 3</a></h2>
-                <p class="date">Objavljeno: 18.11.2024.</p>
-                <p>Kratak opis trećeg članka. Ovdje je kratak uvod u temu članka.</p>
-                <a href="pojedine novosti/novost-3.html" class="read-more">Pročitaj više...</a>
-            </article>
-            <article>
-                <a href="pojedine novosti/novost-4.html"><img src="src/novosti/novosti media/news-1-3.jpg" alt="Thumbnail članka 4"></a>
-                <h2><a href="pojedine novosti/novost-4.html">Naslov članka 4</a></h2>
-                <p class="date">Objavljeno: 17.11.2024.</p>
-                <p>Kratak opis četvrtog članka. Ovdje možete saznati više o ovoj temi.</p>
-                <a href="pojedine novosti/novost-4.html" class="read-more">Pročitaj više...</a>
-            </article>
-            <article>
-                <a href="pojedine novosti/novost-5.html"><img src="src/novosti/novosti media/news-1-4.jpg" alt="Thumbnail članka 5"></a>
-                <h2><a href="pojedine novosti/novost-5.html">Naslov članka 5</a></h2>
-                <p class="date">Objavljeno: 16.11.2024.</p>
-                <p>Kratak opis petog članka. Kliknite za čitanje detalja.</p>
-                <a href="pojedine novosti/novost-5.html" class="read-more">Pročitaj više...</a>
-            </article>
+            <?php
+            if ($result->num_rows > 0) {
+                // Ispis svake vijesti kao članka
+                while ($row = $result->fetch_assoc()) {
+                    echo '
+                    <article>
+                        <a href="#"><img src="' . htmlspecialchars($row['slika']) . '" alt="Thumbnail članka"></a>
+                        <h2><a href="#">' . htmlspecialchars($row['naslov']) . '</a></h2>
+                        <p class="date">Objavljeno: ' . date('d.m.Y.', strtotime($row['datum_objave'])) . '</p>
+                        <p>' . substr(htmlspecialchars($row['tekst']), 0, 100) . '...</p>
+                        <a href="#" class="read-more">Pročitaj više...</a>
+                    </article>';
+                }
+            } else {
+                echo '<p>Nema aktivnih vijesti.</p>';
+            }
+            ?>
         </section>
     </main>
 </body>
 
 </html>
+
+<?php
+$conn->close(); // Zatvaranje veze s bazom
+?>

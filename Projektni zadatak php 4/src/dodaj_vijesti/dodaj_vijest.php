@@ -1,12 +1,6 @@
 <?php
 include 'db_connect.php';
 
-
-// Provjera pristupa za administratora i editora
-if (!isset($_SESSION['uloga']) || ($_SESSION['uloga'] !== 'administrator' && $_SESSION['uloga'] !== 'editor')) {
-    die("Nemate pravo pristupa ovoj stranici.");
-}
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Provjera i obrada unosa vijesti
     if (!empty($_POST['naslov']) && !empty($_POST['tekst'])) {
@@ -14,9 +8,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $tekst = $_POST['tekst'];
         $autor_id = $_SESSION['id']; // Dohvaćanje korisničkog ID-a iz sesije
 
+        // Postavljanje statusa "odobreno" na temelju korisničke uloge
+        $odobreno = ($_SESSION['uloga'] === 'administrator') ? 1 : 0;
+
         // Priprema upita za unos vijesti
-        $stmt = $conn->prepare("INSERT INTO vijesti (naslov, tekst, autor_id) VALUES (?, ?, ?)");
-        $stmt->bind_param("ssi", $naslov, $tekst, $autor_id);
+        $stmt = $conn->prepare("INSERT INTO vijesti (naslov, tekst, autor_id, odobreno) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssii", $naslov, $tekst, $autor_id, $odobreno);
 
         if ($stmt->execute()) {
             echo "<script>

@@ -16,15 +16,14 @@ if (session_status() === PHP_SESSION_NONE) {
         <li><a href="index.php?menu=7">Prijava</a></li>
         <?php if (isset($_SESSION['uloga']) && ($_SESSION['uloga'] === 'administrator' || $_SESSION['uloga'] === 'editor')) { ?>
             <li><a href="index.php?menu=8">Upravljanje vijestima</a></li>
-            <li><a href="index.php?menu=9">Dodaj vijest</a></li>
         <?php } ?>
+        <li><a href="index.php?menu=9">Dodaj vijest</a></li>
         <?php if (isset($_SESSION['uloga']) && $_SESSION['uloga'] === 'administrator') { ?>
             <li><a href="index.php?menu=10">Upravljanje korisnicima</a></li>
         <?php } ?>
         <?php if (isset($_SESSION['ime'])) { ?>
             <li><a href='#'> Dobrodošli, <?php echo htmlspecialchars($_SESSION['ime']); ?>
-                (<?php echo htmlspecialchars($_SESSION['uloga']); ?>)</a></li>
+                    (<?php echo htmlspecialchars($_SESSION['uloga']); ?>)</a></li>
         <?php } ?>
     </ul>
 </nav>
-
